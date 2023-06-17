@@ -1,0 +1,135 @@
+<section class="cl-matches-container__search">
+  <h1 class="cl-title">Refine your search</h1>
+
+  <div class="cl-matches-container__filter">
+    <div class="cl-matches-container__filter-label">Hero</div>
+
+    {{#power-select
+      options=heroOptions
+      selected=hero
+      placeholder="All Heroes"
+      allowClear=true
+      searchPlaceholder="Search by name"
+      searchField="name"
+      onchange=(action "selectHero") as |hero|}}
+      <img class="cl-matches-container__hero-option-portrait" src={{hero.portraitUrl}}/> {{hero.name}}
+    {{/power-select}}
+  </div>
+
+  <div class="cl-matches-container__filter">
+    <div class="cl-matches-container__filter-label">Regions</div>
+
+    {{#power-select-multiple
+      options=regionOptions
+      selected=selectedRegionOptions
+      placeholder="All Regions"
+      searchEnabled=false
+      onchange=(action "selectMultiple" "regions") as |option|}}
+      {{option.label}}
+    {{/power-select-multiple}}
+  </div>
+
+  <div class="cl-matches-container__filter">
+    <div class="cl-matches-container__filter-label">Duration</div>
+
+    {{#power-select
+      options=durationOptions
+      selected=selectedDurationOption
+      placeholder="Any Duration"
+      allowClear=true
+      searchEnabled=false
+      onchange=(action "selectSingle" "duration") as |option|}}
+      {{option.label}}
+    {{/power-select}}
+  </div>
+
+  <div class="cl-matches-container__filter {{unless hero "cl-matches-container__filter--disabled"}}">
+    <div class="cl-matches-container__filter-label">Lanes</div>
+
+    {{#power-select-multiple
+      options=laneOptions
+      selected=selectedLaneOptions
+      placeholder="All Lanes"
+      searchEnabled=false
+      onchange=(action "selectMultiple" "lanes") as |option|}}
+      {{option.label}}
+    {{/power-select-multiple}}
+  </div>
+
+  <div class="cl-matches-container__filter {{unless hero "cl-matches-container__filter--disabled"}}">
+    <div class="cl-matches-container__filter-label">Role</div>
+
+    {{#power-select
+      options=roleOptions
+      selected=selectedRoleOption
+      placeholder="All Roles"
+      allowClear=true
+      searchEnabled=false
+      onchange=(action "selectSingle" "role") as |option|}}
+      {{option.label}}
+    {{/power-select}}
+  </div>
+
+  <div class="cl-matches-container__filter {{unless hero "cl-matches-container__filter--disabled"}}">
+    <div class="cl-matches-container__filter-label">Side</div>
+
+    {{#power-select
+      options=sideOptions
+      selected=selectedSideOption
+      placeholder="All Sides"
+      allowClear=true
+      searchEnabled=false
+      onchange=(action "selectSingle" "side") as |option|}}
+      {{option.label}}
+    {{/power-select}}
+  </div>
+
+  <div class="cl-matches-container__filter {{unless hero "cl-matches-container__filter--disabled"}}">
+    <div class="cl-matches-container__filter-label">Result</div>
+
+    <div class="cl-matches-container__checkbox">
+      {{one-way-checkbox includeLosses id=(concat elementId "-include-losses") update=(action "updateIncludeLosses")}}
+      <label for={{concat elementId "-include-losses"}}>Include losses</label>
+    </div>
+  </div>
+</section>
+
+<section class="cl-matches-container__content">
+  {{#if reload.isIdle}}
+    {{#if paginatedModel.collection}}
+      <div class="cl-box">
+        <div class="grid grid--middle">
+          <div class="grid__cell grid__cell--6/12">Found {{paginatedModel.model.meta.total-count}} matches.</div>
+
+          <div class="grid__cell grid__cell--6/12">
+            <div class="cl-matches-container__sort">
+              <span>Sort by:</span>
+
+              {{#power-select
+                options=sortOptions
+                selected=selectedSortOption
+                searchEnabled=false
+                triggerClass="ember-power-select-trigger-inline"
+                dropdownClass="ember-power-select-dropdown-inline"
+                onchange=(action "selectSingle" "sort") as |option|}}
+                {{option.label}}
+              {{/power-select}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{cl-match-list model=paginatedModel.collection highlightedHero=hero}}
+
+      {{#if paginatedModel.hasMore}}
+        <footer class="cl-matches-container__footer">
+          {{cl-show-more-button paginatedModel=paginatedModel onLoadMore=(action "loadMore")}}
+        </footer>
+      {{/if}}
+    {{else}}
+      {{#cl-empty-alert icon="list"}}No matches found with the selected filters.{{/cl-empty-alert}}
+    {{/if}}
+  {{else}}
+    {{cl-loading}}
+  {{/if}}
+</section>

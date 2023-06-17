@@ -1,0 +1,6 @@
+.cl-dashboard-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  padding: $av-gutter * 2;
+}

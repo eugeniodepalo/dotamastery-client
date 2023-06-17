@@ -1,0 +1,6 @@
+<div class="cl-empty-alert__icon">{{fa-icon icon size=5}}</div>
+<div class="cl-empty-alert__message">{{yield}}</div>
+
+{{#if suggestionComponent}}
+  <div class="cl-empty-alert__suggestion">{{component suggestionComponent}}</div>
+{{/if}}

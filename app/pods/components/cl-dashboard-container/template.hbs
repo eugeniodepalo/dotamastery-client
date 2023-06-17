@@ -1,0 +1,27 @@
+{{#if paginatedModel.collection}}
+  <header class="cl-header">
+    <div class="grid grid--middle">
+      <div class="grid__cell grid__cell--6/12">
+        <h1 class="cl-header__title">Your Recent Matches</h1>
+      </div>
+
+      <div class="grid__cell grid__cell--6/12">
+        {{cl-dashboard-container/sync-button parent=this}}
+      </div>
+    </div>
+  </header>
+
+  {{#each paginatedModel.collection as |match|}}
+    {{cl-dashboard-container/match match=match}}
+  {{/each}}
+
+  {{#if paginatedModel.hasMore}}
+    {{cl-show-more-button paginatedModel=paginatedModel onLoadMore=(action "loadMore")}}
+  {{/if}}
+{{else}}
+  {{#cl-empty-alert
+    icon="tachometer"
+    suggestionComponent=(component "cl-dashboard-container/sync-button" parent=this)}}
+    Your personal dashboard is empty.
+  {{/cl-empty-alert}}
+{{/if}}

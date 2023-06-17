@@ -1,0 +1,33 @@
+<div class="cl-dashboard-container-match__content">
+  <img class="cl-dashboard-container-match__hero-portrait" src={{userPlayerParticipation.hero.portraitUrl}} />
+
+  <div class="cl-dashboard-container-match__title">
+    <a class="cl-link" href={{match.dotabuffUrl}} target="_blank">Match {{match.originalId}}</a>
+  </div>
+
+  <div class="cl-dashboard-container-match__info">
+    {{userPlayerParticipation.hero.name}},
+    {{#if userPlayerParticipation.lane}}{{userPlayerParticipationLane}},{{/if}}
+    {{moment-from-now match.startedAt}}
+  </div>
+
+  <div class="cl-dashboard-container-match__result
+              {{if (eq userPlayerParticipation.side match.winner) "cl-dashboard-container-match__result--won"}}">
+    {{if (eq userPlayerParticipation.side match.winner) "Won" "Lost"}}
+  </div>
+</div>
+
+<div class="cl-dashboard-container-match__comparisons">
+  <h1 class="cl-dashboard-container-match__comparisons-title">
+    Found {{match.matchComparisons.length}} similar matches.
+  </h1>
+
+  {{#if match.matchComparisons}}
+    {{#cl-match-list model=matchComparisons isShowingComparisons=true as |matchComparison|}}
+      {{cl-match
+        match=matchComparison.otherMatch
+        comparison=matchComparison
+        highlightedHero=userPlayerParticipation.hero}}
+    {{/cl-match-list}}
+  {{/if}}
+</div>

@@ -1,0 +1,7 @@
+.cl-header {
+  @include cl-title;
+
+  &__title {
+    margin: 0;
+  }
+}

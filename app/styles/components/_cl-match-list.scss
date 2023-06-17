@@ -1,0 +1,16 @@
+.cl-match-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  &__header {
+    @include cl-gradient-border(#444);
+
+    color: $cl-secondary-color;
+    padding: $av-gutter;
+
+    &::before {
+      height: 1px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.cl-match {
+  @include cl-gradient-border(#444);
+
+  padding: $av-gutter;
+
+  &::before {
+    height: 1px;
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+
+  &__hero-portrait {
+    width: 40px;
+    filter: grayscale(100);
+    transition: filter 200ms;
+
+    &--highlighted,
+    &:hover {
+      filter: none;
+    }
+  }
+
+  &__result {
+    color: red;
+
+    &--won {
+      color: green;
+    }
+  }
+
+  &__similarity {
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+}

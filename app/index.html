@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DotaMastery</title>
+    <meta name="description" content="Learn Dota 2 by example. Watch replays of your favorite heroes played by top tier players.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+
+    <link rel="shortcut icon" href="{{rootURL}}favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/dotamastery.css">
+
+    {{content-for "head-footer"}}
+    {{content-for "mixpanel"}}
+    {{content-for "google-analytics"}}
+    {{content-for "drift"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/dotamastery.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

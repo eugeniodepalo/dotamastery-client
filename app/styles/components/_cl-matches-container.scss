@@ -1,0 +1,78 @@
+.cl-matches-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+
+  &__search {
+    padding: $av-gutter * 1.5;
+    width: 380px;
+    position: relative;
+
+    &::before {
+      background: radial-gradient(center, ellipse, rgba(#444, 0.9) 0%, rgba(0, 0, 0, 0) 80%);
+      content: '';
+      height: 100%;
+      left: 100%;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 2px;
+    }
+  }
+
+  &__sort {
+    text-align: right;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    @include cl-box;
+
+    text-align: center;
+  }
+
+  &__checkbox {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: $av-gutter / 2;
+    line-height: 1.75;
+  }
+
+  &__filter {
+    @include cl-gradient-border(#444);
+
+    padding: 0 0 $av-gutter;
+    margin-bottom: $av-gutter;
+    transition: opacity 200ms, filter 200ms;
+
+    &::before {
+      height: 3px;
+    }
+
+    &:last-child::before {
+      height: 0;
+    }
+
+    &--disabled {
+      opacity: 0.3;
+      pointer-events: none;
+      filter: grayscale(1);
+      user-select: none;
+    }
+  }
+
+  &__filter-label {
+    font-size: 1.1rem;
+    color: $cl-secondary-color;
+    margin-bottom: $av-gutter;
+  }
+
+  &__hero-option-portrait {
+    height: 1.45em;
+    vertical-align: middle;
+    margin-right: $av-gutter / 2;
+  }
+}

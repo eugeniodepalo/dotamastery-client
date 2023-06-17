@@ -1,0 +1,21 @@
+<header class="cl-match-list__header">
+  <div class="grid grid--middle grid--center">
+    {{#if isShowingComparisons}}
+      <div class="grid__cell grid__cell--1/12">Similarity</div>
+    {{/if}}
+
+    <div class="grid__cell grid__cell--3/12">Heroes</div>
+    <div class="grid__cell grid__cell--2/12">Average MMR</div>
+    <div class="grid__cell grid__cell--2/12">Result</div>
+    <div class="grid__cell grid__cell--2/12">Started At</div>
+    <div class="grid__cell grid__cell--2/12">Replay</div>
+  </div>
+</header>
+
+{{#each model as |item|}}
+  {{#if hasBlock}}
+    {{yield item}}
+  {{else}}
+    {{cl-match match=item highlightedHero=highlightedHero}}
+  {{/if}}
+{{/each}}

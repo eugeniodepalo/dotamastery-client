@@ -1,0 +1,10 @@
+.fa--action {
+  color: #444;
+  cursor: pointer;
+  display: inline-block;
+  transition: color 200ms;
+
+  &:hover {
+    color: #fff;
+  }
+}

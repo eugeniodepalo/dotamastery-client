@@ -1,0 +1,5 @@
+{{#if session.currentUser}}
+  {{#link-to params=params class="cl-link"}}{{yield}}{{/link-to}}
+{{else}}
+  <a class="cl-link" onclick={{action "login"}}>{{yield}}</a>
+{{/if}}

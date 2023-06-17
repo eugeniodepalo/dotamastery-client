@@ -1,0 +1,27 @@
+.cl-button {
+  @include cl-glow($cl-primary-color);
+
+  background: linear-gradient(to bottom, $cl-secondary-color, $cl-primary-color);
+  display: inline-block;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+
+  &::before {
+    top: 95%;
+  }
+
+  &--disabled,
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &--big {
+    font-size: 25px;
+    padding: 12px 30px;
+    margin-top: 30px;
+  }
+}

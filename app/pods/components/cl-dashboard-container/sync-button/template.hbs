@@ -1,0 +1,12 @@
+<div class="cl-button {{buttonClass}}" onclick={{perform parent.syncRecentMatches}}>
+  {{#if (or parent.syncRecentMatches.isRunning parent.pollJobStatus.isRunning)}}
+    Syncing {{cl-spinner class="cl-spinner--inline"}}
+  {{else}}
+    Sync Recent Matches
+  {{/if}}
+
+  {{#tooltip-on-element side="bottom"}}
+    This refreshes the dashboard with your latest matches.
+    The operation may take a while.
+  {{/tooltip-on-element}}
+</div>

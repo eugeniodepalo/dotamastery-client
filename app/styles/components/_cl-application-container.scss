@@ -1,0 +1,67 @@
+.cl-application-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &__header {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: $cl-application-header-height;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+  }
+
+  &__header-logo {
+    height: 40px;
+  }
+
+  &__title {
+    margin-right: $av-gutter / 2;
+  }
+
+  &__header-content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 0 $av-gutter;
+  }
+
+  &__nav {
+    flex-grow: 1;
+  }
+
+  &__session {
+    text-align: right;
+  }
+
+  &__current-user-name {
+    display: inline-block;
+    margin-right: $av-gutter / 2;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  &__content {
+    padding-top: $cl-application-header-height;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__footer {
+    @include cl-gradient-box(#111, #000);
+
+    padding: $av-gutter;
+    color: #444;
+    text-align: center;
+  }
+}

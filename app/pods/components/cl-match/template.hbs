@@ -1,0 +1,48 @@
+<div class="grid grid--middle grid--center">
+  {{#if comparison}}
+    <div class="grid__cell grid__cell--1/12">
+      <div class="cl-match__similarity">{{comparisonSimilarity}}%</div>
+    </div>
+  {{/if}}
+
+  <div class="grid__cell grid__cell--3/12">
+    {{#each playerParticipationGroups as |playerParticipations index|}}
+      {{#unless (eq index 0)}}<br />{{/unless}}
+
+      {{#each playerParticipations as |playerParticipation|}}
+        <span>
+          <img class="cl-match__hero-portrait
+                      {{if (or (not highlightedHero) (eq playerParticipation.hero.id highlightedHero.id)) "cl-match__hero-portrait--highlighted"}}"
+               src={{playerParticipation.hero.portraitUrl}} />
+
+          {{#tooltip-on-element enableLazyRendering=true}}
+            {{playerParticipation.hero.name}}
+
+            {{#if playerParticipation.player.name}}
+              ({{playerParticipation.player.name}})
+            {{/if}}
+          {{/tooltip-on-element}}
+        </span>
+      {{/each}}
+    {{/each}}
+  </div>
+
+  <div class="grid__cell grid__cell--2/12">{{match.averageMmr}}</div>
+
+  <div class="grid__cell grid__cell--2/12">
+    {{#if highlightedHero}}
+      <div class="cl-match__result
+                  {{if (eq highlightedPlayerParticipation.side match.winner) "cl-match__result--won"}}">
+        {{winner}}
+      </div>
+    {{else}}
+      {{winner}}
+    {{/if}}
+  </div>
+
+  <div class="grid__cell grid__cell--2/12">{{moment-from-now match.startedAt}}</div>
+
+  <div class="grid__cell grid__cell--2/12">
+    <a class="cl-link" href={{match.dotabuffUrl}} target="_blank">Dotabuff</a>
+  </div>
+</div>

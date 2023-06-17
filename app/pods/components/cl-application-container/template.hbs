@@ -1,0 +1,48 @@
+<header class="cl-application-container__header">
+  <div class="cl-application-container__header-content">
+    <h1 class="cl-application-container__title">
+      {{#link-to "index"}}
+        <img class="cl-application-container__header-logo" src="/assets/images/header-logo.svg" />
+      {{/link-to}}
+    </h1>
+
+    <nav class="cl-application-container__nav">
+      <ul class="grid grid--auto">
+        <li class="grid__cell">
+          {{#cl-authenticated-link-to "dashboard" class="cl-link"}}Dashboard{{/cl-authenticated-link-to}}
+        </li>
+
+        <li class="grid__cell">
+          {{#link-to "matches" class="cl-link"}}Matches{{/link-to}}
+        </li>
+
+        {{#if features.heroPages}}
+          <li class="grid__cell">
+            <a class="cl-link">Heroes</a>
+          </li>
+        {{/if}}
+      </ul>
+    </nav>
+
+    <div class="cl-application-container__session">
+      {{#if session.currentUser}}
+        <div class="cl-application-container__current-user-name">{{session.currentUser.name}}</div>
+        <a class="cl-link" onclick={{action "logout"}}>Logout</a>
+      {{else}}
+        <a class="cl-link" onclick={{action "login"}}><img src="/assets/images/steam-login.png" /></a>
+      {{/if}}
+    </div>
+  </div>
+</header>
+
+<div class="cl-application-container__inner">
+  <main class="cl-application-container__content">
+    {{yield}}
+  </main>
+
+  {{#if shouldShowFooter}}
+    <footer class="cl-application-container__footer">
+      <small>Copyright © 2016 Caldera Labs Ltd.</small>
+    </footer>
+  {{/if}}
+</div>

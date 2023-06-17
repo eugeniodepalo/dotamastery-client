@@ -1,0 +1,45 @@
+.cl-dashboard-container-match {
+  display: flex;
+  margin-bottom: $av-gutter * 2;
+
+  &__content {
+    @include cl-gradient-box(#111, #222);
+
+    padding: $av-gutter * 2;
+    text-align: center;
+    width: 300px;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin: $av-gutter / 2 0;
+  }
+
+  &__hero-portrait {
+    height: 70px;
+  }
+
+  &__info {
+    margin-bottom: $av-gutter / 2;
+  }
+
+  &__result {
+    color: red;
+    font-size: 1.4rem;
+
+    &--won {
+      color: green;
+    }
+  }
+
+  &__comparisons {
+    padding: $av-gutter;
+    flex-grow: 1;
+  }
+
+  &__comparisons-title {
+    @include cl-title;
+
+    padding: 0 $av-gutter $av-gutter;
+  }
+}

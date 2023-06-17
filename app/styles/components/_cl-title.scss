@@ -1,0 +1,11 @@
+.cl-title {
+  @include cl-gradient-border(#444);
+
+  font-size: 1.1rem;
+  margin: 0 0 $av-gutter;
+  padding-bottom: $av-gutter;
+
+  &::before {
+    height: 1px;
+  }
+}

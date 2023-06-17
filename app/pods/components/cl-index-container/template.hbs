@@ -1,0 +1,116 @@
+<header class="cl-index-container__header">
+  <div class="cl-index-container__header-content">
+    <h1>
+      <img class="cl-index-container__logo" src="/assets/images/logo.svg" />
+      <div class="cl-index-container__tagline">You surpass the master.</div>
+    </h1>
+
+    {{#link-to "matches" class="cl-button cl-button--big"}}Find Matches{{/link-to}}
+  </div>
+
+  <div class="cl-index-container__scroll-indicator">
+    {{#scroll-to
+      href="#content"
+      class="cl-index-container__scroll-indicator-link"
+      tagName="div"
+      offset=-100}}
+      {{fa-icon "angle-down" class="fa--action" size=3}}
+    {{/scroll-to}}
+  </div>
+</header>
+
+<div class="cl-index-container__content" id="content">
+  <section>
+    <h1 class="cl-index-container__title">Features</h1>
+
+    <ul class="cl-index-container__feature-list">
+      <li class="cl-index-container__feature">
+        <div class="cl-index-container__feature-image">
+          <img class="cl-index-container__feature-image-content" src="/assets/images/learn-feature.png" />
+        </div>
+
+        <div class="cl-index-container__feature-title">Learn By Example</div>
+
+        <div class="cl-index-container__feature-description">
+          Stats don't lie, but stats alone are not enough to improve your play.<br />
+          Find guidance by watching replays of great players and start imitating their moves.
+        </div>
+      </li>
+
+      <li class="cl-index-container__feature">
+        <div class="cl-index-container__feature-image">
+          <img class="cl-index-container__feature-image-content" src="/assets/images/filters-feature.png" />
+        </div>
+
+        <div class="cl-index-container__feature-title">Apply Granular Filters</div>
+
+        <div class="cl-index-container__feature-description">
+          Refine your search to match what you're currently focused on.<br />
+          That could be a particular hero, a lane or even a side of the map.
+        </div>
+      </li>
+
+      <li class="cl-index-container__feature">
+        <div class="cl-index-container__feature-image">
+          <img class="cl-index-container__feature-image-content" src="/assets/images/dashboard-feature.png" />
+        </div>
+
+        <div class="cl-index-container__feature-title">Personalized Dashboard</div>
+
+        <div class="cl-index-container__feature-description">
+          Connect your Steam account and get access to a personalized dashboard.<br />
+          Get a list of matches recommended watching based on your most recent games.
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="cl-index-container__upcoming">
+    <h1 class="cl-index-container__title">Upcoming</h1>
+
+    <ul class="grid">
+      <li class="grid__cell grid__cell--4/12">
+        <div class="cl-index-container__feature">
+          <div class="cl-index-container__feature-title">Hero Pages</div>
+
+          <div class="cl-index-container__feature-description">
+            Get an overview of how a certain hero is played at the highest level.<br />
+            Find out the most popular lane choices, item and skill builds.<br />
+          </div>
+        </div>
+      </li>
+
+      <li class="grid__cell grid__cell--4/12">
+        <div class="cl-index-container__feature">
+          <div class="cl-index-container__feature-title">In-browser Replay Watching</div>
+
+          <div class="cl-index-container__feature-description">
+            Don't go through the hassle of opening the Dota 2 client each time.<br />
+            View replays from any device, any player perspective.
+          </div>
+        </div>
+      </li>
+
+      <li class="grid__cell grid__cell--4/12">
+        <div class="cl-index-container__feature">
+          <div class="cl-index-container__feature-title">Coach Replay Analysis</div>
+
+          <div class="cl-index-container__feature-description">
+            Request for a coach to analyze your replay.<br />
+            Get a notification once the replay is ready to be viewed with overlayed coach annotations.
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<footer class="cl-index-container__footer">
+  <a href="http://calderalabs.io" class="cl-index-container__caldera-labs-logo">
+    <img src="/assets/images/caldera-labs-logo.png" />
+  </a>
+
+  <div>
+    <small>Copyright © 2016 Caldera Labs Ltd.</small>
+  </div>
+</footer>
